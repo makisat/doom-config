@@ -12,7 +12,7 @@
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
-(setq doom-font (font-spec :family "Roboto Mono" :size 14))
+(setq doom-font (font-spec :size 14))
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
