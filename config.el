@@ -93,3 +93,7 @@
       "l m" #'lsp-mode
       "r n" #'lsp-rename
       )
+
+(setq evil-insert-state-cursor '(box "white")
+      evil-normal-state-cursor '(box "purple")
+      evil-visual-state-cursor '(box "red"))
