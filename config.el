@@ -92,7 +92,7 @@
 (map! :leader
       "l m" #'lsp-mode
       "r n" #'lsp-rename
-      )
+      ("c s" 'sp-rewrap-sexp))
 
 (setq evil-insert-state-cursor '(box "white")
       evil-normal-state-cursor '(box "purple")
