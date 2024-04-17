@@ -80,13 +80,13 @@
 (add-to-list 'default-frame-alist '(alpha . 90))
 
 ;; set default as mozc
-(use-package mozc
-  :if IS-LINUX
-  :init
-  (setq default-input-method "japanese-mozc"))
+;; (use-package mozc
+;;   :if IS-LINUX
+;;   :init
+;;   (setq default-input-method "japanese-mozc"))
 
 ;; set to japanese
-(set-language-environment "Japanese")
+;; (set-language-environment "Japanese")
 
 ;; set key bindings
 (map! :leader
@@ -97,3 +97,6 @@
 (setq evil-insert-state-cursor '(box "white")
       evil-normal-state-cursor '(box "purple")
       evil-visual-state-cursor '(box "red"))
+
+(after! doom
+  (setq scroll-margin 8))
