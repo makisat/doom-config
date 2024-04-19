@@ -80,18 +80,19 @@
 (add-to-list 'default-frame-alist '(alpha . 90))
 
 ;; set default as mozc
-;; (use-package mozc
-;;   :if IS-LINUX
-;;   :init
-;;   (setq default-input-method "japanese-mozc"))
+(use-package mozc
+  :if IS-LINUX
+  :init
+  (setq default-input-method "japanese-mozc"))
 
 ;; set to japanese
-;; (set-language-environment "Japanese")
+(set-language-environment "Japanese")
 
 ;; set key bindings
 (map! :leader
       "l m" #'lsp-mode
       "r n" #'lsp-rename
+      ("c s" 'sp-rewrap-sexp))
       )
 
 (setq evil-insert-state-cursor '(box "white")
