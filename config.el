@@ -19,7 +19,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "RobotoMono Nerd Font" :size 14))
+(setq doom-font (font-spec :family "RobotoMono" :size 14))
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
@@ -31,11 +31,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tokyo-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -76,5 +76,33 @@
 
 
 ;; background
-(set-frame-parameter nil 'alpha-background 90)
 (add-to-list 'default-frame-alist '(alpha-background . 90))
+
+;; org-modern
+(use-package org-modern
+  :ensure t
+  :init
+  ;; change heading bullets
+  (setq org-modern-star '("◉" "○" "✸" "✿"))
+
+  ;; ;; change font size for headings
+  ;; (custom-set-faces
+  ;;  ;; Customiz ;; Customize Org-level headings
+  ;;  '(org-level-1 ((t (:height 1.5 :weight bold :foreground "#E06C75"))))
+  ;;  '(org-level-2 ((t (:height 1.3 :weight bold :foreground "#98C379"))))
+  ;;  '(org-level-3 ((t (:height 1.2 :weight bold :foreground "#61AFEF"))))
+  ;;  '(org-level-4 ((t (:height 1.1 :weight bold :foreground "#C678DD"))))
+  ;;  ;; Customize other levels as needed...ontinue for org-level-5, org-level-6, etc.
+  ;;  )
+
+  :hook
+  (org-mode . org-modern-mode)
+  (org-mode . org-indent-mode))
+
+;; visual-fill-column
+(use-package visual-fill-column
+  :ensure t
+  :init
+  (setq visual-fill-column-width 120
+        visual-fill-column-center-text t)
+  :hook (org-mode . visual-fill-column-mode))
