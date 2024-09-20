@@ -78,6 +78,9 @@
 ;; background
 (add-to-list 'default-frame-alist '(alpha-background . 90))
 
+;; disable line number on org-mode
+(add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
+
 ;; org-modern
 (use-package org-modern
   :ensure t
@@ -106,3 +109,8 @@
   (setq visual-fill-column-width 120
         visual-fill-column-center-text t)
   :hook (org-mode . visual-fill-column-mode))
+
+;; Japanese input
+(use-package mozc
+  :config
+  (setq default-input-method "japanese-mozc"))
