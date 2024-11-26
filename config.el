@@ -1,3 +1,5 @@
+(setq initial-buffer-choice "~/.config/doom/start.org")
+
 ;; Set font
 (add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font 14"))
 
