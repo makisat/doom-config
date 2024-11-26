@@ -14,11 +14,13 @@
     \  \:\         /__/:/        /__/:/       \  \:\        \  \::/
      \__\/         \__\/         \__\/         \__\/         \__\/
 
-* [[file:~/.config/doom/][Configuration]]
-** [[init.el]]
-** [[config.el]]
-** [[packages.el]]
 
-* Agenda
+
+
+* [[file:~/.config/doom/][Configuration]]
+** [[~/.config/doom/init.el]]
+** [[~/.config/doom/config.el]]
+** [[~/.config/doom/packages.el]]
+* [[elisp:(org-agenda)][Agenda]]
 ** [[elisp:(org-agenda-list)][Agenda View]]
 ** [[file:~/Sync/org/todos.org][Todos]]

@@ -52,3 +52,5 @@
 (package! olivetti)
 (package! org-modern)
 (package! org)
+(package! sly)
+(package! vterm)
