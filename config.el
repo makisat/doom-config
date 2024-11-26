@@ -37,6 +37,10 @@
 (define-key evil-normal-state-map (kbd "C-d") 'my-scroll-half-page-down-and-recenter)
 (define-key evil-normal-state-map (kbd "C-u") 'my-scroll-half-page-up-and-recenter)
 
+;; Latex config
+(setq org-format-latex-options '(:foreground default :background default :scale 2.0 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+                                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
+
 ;; Package configurations
 
 (use-package! olivetti
@@ -64,7 +68,8 @@
 (use-package! org-modern
   :hook ((org-mode . org-modern-mode)
          (org-agenda-finalize . org-modern-agenda)
-	     (org-mode . (lambda () (display-line-numbers-mode 0))))
+         (org-mode . (lambda () (display-line-numbers-mode 0)))
+         (org-mode . (lambda () (vi-tilde-fringe-mode 0))))
 
   :config
   ;; Customize org-modern settings
