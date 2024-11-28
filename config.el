@@ -1,3 +1,4 @@
+;; Splash screen
 (setq initial-buffer-choice "~/.config/doom/start.org")
 
 ;; Set font
@@ -46,6 +47,15 @@
 ;; transparent background
 (set-frame-parameter nil 'alpha-background 70)
 (add-to-list 'default-frame-alist '(alpha-background . 70))
+
+;; cursor shape
+(setq evil-insert-state-cursor 'box) ;; Changes the insert mode cursor to a block
+
+;; Custom functions
+(defun ms/org-agenda-open-todos ()
+  "Opens the todos org file"
+  (interactive)
+  (find-file "~/Sync/org/todos.org"))
 
 ;; Package configurations
 
@@ -98,3 +108,6 @@
   :load-path "~/temp/emacs-libvterm/"
   :hook (vterm-mode . (lambda () (display-line-numbers-mode -1)))
   :config (setq vterm-shell "/bin/fish"))
+
+;; Keybindings
+(map! :leader "t t" 'ms/org-agenda-open-todos)
