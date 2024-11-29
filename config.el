@@ -16,7 +16,7 @@
 (setq scroll-margin 8)
 
 ;; Org directory
-(setq org-directory "~/Sync/org/")
+(setq org-directory "~/Nextcloud/org/")
 
 ;; Tab and indetation
 (setq-default indent-tabs-mode nil)
@@ -55,7 +55,7 @@
 (defun ms/org-agenda-open-todos ()
   "Opens the todos org file"
   (interactive)
-  (find-file "~/Sync/org/todos.org"))
+  (find-file "~/Nextcloud/org/todos.org"))
 
 ;; Package configurations
 
