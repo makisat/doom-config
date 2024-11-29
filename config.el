@@ -109,5 +109,15 @@
   :hook (vterm-mode . (lambda () (display-line-numbers-mode -1)))
   :config (setq vterm-shell "/bin/fish"))
 
+(use-package! company
+  :config
+  (setq company-idle-delay 0.1)  ; Quick completion popup
+  (setq company-minimum-prefix-length 1)  ; Trigger completion after one character
+  (global-company-mode 1))  ; Enable globally
+
+(use-package! yasnippet
+  :config
+  (yas-global-mode 1))  ; Enable globally
+
 ;; Keybindings
 (map! :leader "t t" 'ms/org-agenda-open-todos)

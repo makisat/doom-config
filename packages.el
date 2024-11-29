@@ -54,3 +54,7 @@
 (package! org)
 (package! sly)
 (package! vterm)
+(package! typescript-mode)
+(package! web-mode)
+(package! company)
+(package! yasnippet)
