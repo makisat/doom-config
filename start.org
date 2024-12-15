@@ -23,4 +23,4 @@
 ** [[~/.config/doom/packages.el]]
 * [[elisp:(org-agenda)][Agenda]]
 ** [[elisp:(org-agenda-list)][Agenda View]]
-** [[file:~/Sync/org/todos.org][Todos]]
+** [[file:~/Nextcloud/org/todos.org][Todos]]
