@@ -110,15 +110,16 @@
   :config (setq vterm-shell "/bin/fish"))
 
 (use-package! yasnippet
+  :init
   :config
-  (yas-global-mode 1))  ; Enable globally
+  (setq yasnippet-snippets-dir "~/.config/doom/snippets")
+  (yas-global-mode))  ; Enable globally
 
 ;;; typescript.el --- typescript support
 ;;; Commentary:
 ;;; Code:
 
 (use-package! flycheck
-  :ensure t
   :config
   (add-hook 'typescript-mode-hook 'flycheck-mode))
 
@@ -132,7 +133,6 @@
   (company-mode +1))
 
 (use-package! company
-  :ensure t
   :config
   (setq company-idle-delay 0.1)  ; Quick completion popup
   (setq company-minimum-prefix-length 1)  ; Trigger completion after one character
@@ -142,14 +142,11 @@
   (global-company-mode))
 
 (use-package! company-quickhelp
-  :ensure t
   :init
   (company-quickhelp-mode 1)
-  (use-package pos-tip
-    :ensure t))
+  (use-package! pos-tip))
 
 (use-package! web-mode
-  :ensure t
   :mode (("\\.html?\\'" . web-mode)
          ("\\.tsx\\'" . web-mode)
          ("\\.jsx\\'" . web-mode))
@@ -172,21 +169,36 @@
   (flycheck-add-mode 'typescript-tslint 'web-mode))
 
 (use-package! typescript-mode
-  :ensure t
   :config
   (setq typescript-indent-level 2)
   (add-hook 'typescript-mode #'subword-mode))
 
 (use-package! tide
   :init
-  :ensure t
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)
          (before-save . tide-format-before-save)))
+
+(use-package! org-roam
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/Nextcloud/org/")
+  :config
+  (org-roam-setup)
+  (org-roam-db-autosync-mode))
+
+(use-package! mozc)
 
 (provide 'typescript)
 ;;; typescript.el ends here
 
 ;; Keybindings
 (map! :leader "t t" 'ms/org-agenda-open-todos)
+;; Org Roam
+(map! :leader "c n l" 'org-roam-buffer-toggle)
+(map! :leader "c n f" 'org-roam-node-find)
+(map! :leader "c n i" 'org-roam-node-insert)
+;; Japanese input
+(map! "M-t" 'mozc-handle-event)
